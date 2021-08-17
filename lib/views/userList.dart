@@ -6,6 +6,7 @@ import 'package:intelligentapp/api/apiService.dart';
 import 'package:intelligentapp/models/user_model.dart';
 import 'package:intelligentapp/views/constants/widgets/userTile.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:intelligentapp/views/search.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserList extends StatefulWidget {
@@ -102,8 +103,19 @@ class _UserListState extends State<UserList> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Search(),
+                ),
+              );
+            }),
         title: Text('User List'),
         centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
           child: Padding(
